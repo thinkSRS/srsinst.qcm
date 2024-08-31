@@ -1,0 +1,41 @@
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "srsinst.qcm"
+authors = [
+    {name = "Chulhoon Kim"},
+]
+description = "Instrument driver package for the Quartz Crystal Microbalance, QCM200 from Stanford Research Systems (SRS)"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["QCM200", "quartz crystal microbalanace", "SRS", "Stanford Research Systems"]
+license = {text = "MIT license"}
+classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Chemistry",
+        "Topic :: Scientific/Engineering :: Physics"
+]
+dependencies = [
+    "srsgui>=0.4.6",
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "srsinst.qcm.__version__"}
+
+[project.optional-dependencies]
+full = ['matplotlib >= 3.6.2', 'pyside6']
+# For Dependency specification, Refer to PEP 631
+
+[project.scripts]
+qcm = "srsinst.qcm.__main__:main"

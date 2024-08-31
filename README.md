@@ -1,7 +1,7 @@
 # srsinst.qcm
 
 `srsinst.qcm` is a Python package to provide serial communication with the 
-[QCM200, Quartz Crystall Microbalance](https://thinksrs.com/products/qcm200.html)
+[Quartz Crystal Microbalance, QCM200](https://thinksrs.com/products/qcm200.html)
 from [Stanford Research Systems (SRS)](https://thinksrs.com/).
 
 `srsinst.qcm` uses [srsgui](https://pypi.org/project/srsgui/) package for the support of instrument communication and graphic user interface (GUI). 
@@ -22,7 +22,7 @@ if necessary, and install:
     python -m pip install srsinst.qcm[full]
 
 
-## Run `srsinst.qcm200` as GUI application
+## Run `srsinst.qcm` as GUI application
 If the Python Scripts directory is in your PATH environment variable,
 start the application by typing from the command line:
 
@@ -48,6 +48,8 @@ refer the document on [srsgui package](https://thinksrs.github.io/srsgui/index.h
 to write a Python script.
 * Import the **QCM200** class from `srsinst.qcm` package.
 * Create an instance of the **QCM200** and connect for the serial communication.
+
+|
 
 
     C:\>python
@@ -107,8 +109,8 @@ You can view all the commands available in the `cmd` component as following.
        }
     >>>
 
-For remote command details, refer to the  
-[QCM200 manual Appendix B](https://www.thinksrs.com/downloads/pdfs/manuals/QCM200m.pdf#page=117).
+For remote command details, refer to the
+[QCM200 manual appendix B](https://www.thinksrs.com/downloads/pdfs/manuals/QCM200m.pdf#page=117).
 
 Here is a simple, yet complete python script to acquire data from a QCM200
 using `srsinst.qcm` package.
@@ -119,7 +121,7 @@ using `srsinst.qcm` package.
     
     GateTime = 1.0                             # Select among 0.1 s, 1.0 s, or 10 s
     DataAcquisitionTime = 600                  # Data collection time in seconds
-                                               # Connect to a QCM
+                                               # Connect to a QCM. Change the address for the COM port used 
     qcm = QCM200('serial', 'COM3', 9600)       # For Linux systems, 'COM3' will be like '/dev/ttyUSB1'.
     qcm.cmd.gate_time = GateTime               # Set the gate time
     
